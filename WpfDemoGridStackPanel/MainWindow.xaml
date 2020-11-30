@@ -1,0 +1,106 @@
+﻿<Window x:Class="WpfDemoGridStackPanel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDemoGridStackPanel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="1000">
+  <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="Padding" Value="10" />
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="LightGray" />
+            <Setter Property="BorderThickness" Value="2" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+
+        <!-- defining the grid-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <!-- content -->
+        <!-- Border only used to have a frame -->
+        <!-- North row as one cell -->
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="North 1" />
+                <TextBlock Text="North 2" />
+                <TextBlock Text="North 3" />
+                <TextBlock Text="North 4" />
+                <TextBlock Text="North 5" />
+                <TextBlock Text="North 6" />
+                <TextBlock Text="North 7" />
+            </StackPanel>
+        </Border>
+
+        <!-- Center as West, Center and East -->
+        <!-- West -->
+        <Border Grid.Row="1" Grid.Column="0">
+            <StackPanel>
+                <TextBlock Text="West 1" />
+                <TextBlock Text="West 2" />
+                <TextBlock Text="West 3" />
+                <TextBlock Text="West 4" />
+                <TextBlock Text="West 5" />
+                <TextBlock Text="West 6" />
+            </StackPanel>
+        </Border>
+
+        <!-- Center -->
+        <Border Grid.Row="1" Grid.Column="1" >
+            <Canvas MinWidth="640" MinHeight="480">
+                <Rectangle Fill="Tomato"
+                           Width="400"
+                           Height="200"
+                           Canvas.Left="100"
+                           Canvas.Top="300"
+                           Stroke="Black"
+                           StrokeThickness="3" />
+
+
+                <Polygon Points="80,300 520,300 300,200"
+                         StrokeThickness="2"
+                         Fill="Black" />
+                <TextBlock Text="Center" Canvas.Left="320" Canvas.Top="100"/>
+            </Canvas>
+        </Border>
+
+        <!-- East -->
+        <Border Grid.Row="1" Grid.Column="2">
+            <StackPanel>
+                <TextBlock Text="East 1" />
+                <TextBlock Text="East 2" />
+                <TextBlock Text="East 3" />
+                <TextBlock Text="East 4" />
+                <TextBlock Text="East 5" />
+                <TextBlock Text="East 6" />
+            </StackPanel>
+        </Border>
+
+        <!-- South as one cell -->
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="South 1" />
+                <TextBlock Text="South 2" />
+                <TextBlock Text="South 3" />
+                <TextBlock Text="South 4" />
+                <TextBlock Text="South 5" />
+                <TextBlock Text="South 6" />
+                <TextBlock Text="South 7" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
